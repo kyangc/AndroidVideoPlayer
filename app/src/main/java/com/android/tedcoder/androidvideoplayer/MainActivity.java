@@ -58,13 +58,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Video video = new Video();
         VideoUrl videoUrl1 = new VideoUrl();
         videoUrl1.setFormatName("720P");
-        videoUrl1.setFormatUrl("http://7xkbzx.com1.z0.glb.clouddn.com/SampleVideo_1080x720_20mb.mp4");
+        videoUrl1.setFormatUrl("http://video.117sport.com/info/20151230/Darklight/Darklight.mp4");
         VideoUrl videoUrl2 = new VideoUrl();
         videoUrl2.setFormatName("480P");
         videoUrl2.setFormatUrl("http://7xkbzx.com1.z0.glb.clouddn.com/SampleVideo_720x480_20mb.mp4");
         ArrayList<VideoUrl> arrayList1 = new ArrayList<>();
         arrayList1.add(videoUrl1);
-        arrayList1.add(videoUrl2);
+        //arrayList1.add(videoUrl2);
         video.setVideoName("测试视频一");
         video.setVideoUrl(arrayList1);
 
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         ArrayList<Video> videoArrayList = new ArrayList<>();
         videoArrayList.add(video);
-        videoArrayList.add(video2);
+        //videoArrayList.add(video2);
 
         mSuperVideoPlayer.loadMultipleVideo(videoArrayList,0,0,0);
     }

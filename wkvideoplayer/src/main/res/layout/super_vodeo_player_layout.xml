@@ -97,15 +97,25 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true">
+        android:layout_alignParentTop="true"
+        android:visibility="gone">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/biz_news_list_ad_video_close_btn"/>
+            android:src="@drawable/biz_news_list_ad_video_close_btn"
+            android:visibility="gone"/>
     </FrameLayout>
 
+    <FrameLayout
+        android:id="@+id/video_close_view_over"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:clickable="true">
+        </FrameLayout>
     <FrameLayout
         android:id="@+id/video_share_tv_view"
         android:layout_width="30dp"

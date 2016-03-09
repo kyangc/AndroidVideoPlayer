@@ -494,7 +494,7 @@ public class SuperVideoPlayer extends RelativeLayout {
         int allTime = mSuperVideoView.getDuration();
         int playTime = mSuperVideoView.getCurrentPosition();
         int loadProgress = mSuperVideoView.getBufferPercentage();
-        int progress = playTime * 100 / allTime;
+        int progress = allTime <= 0 ? 0 : playTime * 100 / allTime;
         mMediaController.setProgressBar(progress, loadProgress);
     }
 

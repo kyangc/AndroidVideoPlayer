@@ -66,7 +66,6 @@ public class SuperVideoPlayer extends RelativeLayout {
     private VideoPlayCallbackImpl mVideoPlayCallback;
 
     private View mProgressBarView;
-    private View mCloseBtnView;
     private View mTvBtnView;
     private View mDLNARootLayout;
 
@@ -110,9 +109,7 @@ public class SuperVideoPlayer extends RelativeLayout {
     private View.OnClickListener mOnClickListener = new OnClickListener() {
         @Override
         public void onClick(View view) {
-            if (view.getId() == R.id.video_close_view) {
-                mVideoPlayCallback.onCloseVideo();
-            } else if (view.getId() == R.id.video_share_tv_view) {
+            if (view.getId() == R.id.video_share_tv_view) {
                 shareToTv();
             } else if (view.getId() == R.id.txt_dlna_exit) {
                 goOnPlayAtLocal();
@@ -195,7 +192,6 @@ public class SuperVideoPlayer extends RelativeLayout {
                     if (what == MediaPlayer.MEDIA_INFO_VIDEO_RENDERING_START
                             || what == MediaPlayer.MEDIA_INFO_VIDEO_TRACK_LAGGING) {
                         mProgressBarView.setVisibility(View.GONE);
-                        setCloseButton(true);
                         initDLNAInfo();
                         return true;
                     }
@@ -381,11 +377,10 @@ public class SuperVideoPlayer extends RelativeLayout {
 
     private void initView(Context context) {
         mContext = context;
-        View.inflate(context, R.layout.super_vodeo_player_layout, this);
+        View.inflate(context, R.layout.super_video_player_layout, this);
         mSuperVideoView = (SuperVideoView) findViewById(R.id.video_view);
         mMediaController = (MediaController) findViewById(R.id.controller);
         mProgressBarView = findViewById(R.id.progressbar);
-        mCloseBtnView = findViewById(R.id.video_close_view);
         mTvBtnView = findViewById(R.id.video_share_tv_view);
         mDLNARootLayout = findViewById(R.id.rel_dlna_root_layout);
 
@@ -393,13 +388,11 @@ public class SuperVideoPlayer extends RelativeLayout {
         mSuperVideoView.setOnTouchListener(mOnTouchVideoListener);
 
         setDLNAButton(false);
-        setCloseButton(false);
         mDLNARootLayout.setVisibility(GONE);
         showProgressView(false);
 
         mDLNARootLayout.setOnClickListener(mOnClickListener);
         mDLNARootLayout.findViewById(R.id.txt_dlna_exit).setOnClickListener(mOnClickListener);
-        mCloseBtnView.setOnClickListener(mOnClickListener);
         mTvBtnView.setOnClickListener(mOnClickListener);
         mProgressBarView.setOnClickListener(mOnClickListener);
 
@@ -423,15 +416,6 @@ public class SuperVideoPlayer extends RelativeLayout {
     }
 
     /**
-     * 显示关闭视频的按钮
-     *
-     * @param isShow isShow
-     */
-    private void setCloseButton(boolean isShow) {
-        mCloseBtnView.setVisibility(isShow ? VISIBLE : INVISIBLE);
-    }
-
-    /**
      * 更换清晰度地址时，续播
      */
     private void playVideoAtLastPos() {
@@ -447,7 +431,6 @@ public class SuperVideoPlayer extends RelativeLayout {
      */
     private void loadAndPlay(VideoUrl videoUrl, int seekTime) {
         showProgressView(seekTime > 0);
-        setCloseButton(true);
         if (TextUtils.isEmpty(videoUrl.getFormatUrl())) {
             Log.e("TAG", "videoUrl should not be null");
             return;
@@ -602,7 +585,6 @@ public class SuperVideoPlayer extends RelativeLayout {
         if (isSuccess) {
             showDLNAController();
             setDLNAButton(false);
-            setCloseButton(false);
             pausePlay(false);
             mProgressBarView.setVisibility(View.GONE);
         } else {

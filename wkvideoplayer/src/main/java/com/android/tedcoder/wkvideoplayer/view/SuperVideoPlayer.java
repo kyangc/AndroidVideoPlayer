@@ -77,15 +77,6 @@ public class SuperVideoPlayer extends RelativeLayout {
         }
     });
 
-    private View.OnClickListener mOnClickListener = new OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            if (view.getId() == R.id.txt_dlna_exit) {
-                goOnPlayAtLocal();
-            }
-        }
-    };
-
     private View.OnTouchListener mOnTouchVideoListener = new OnTouchListener() {
         @Override
         public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -345,8 +336,6 @@ public class SuperVideoPlayer extends RelativeLayout {
         mSuperVideoView.setOnTouchListener(mOnTouchVideoListener);
 
         showProgressView(false);
-
-        mProgressBarView.setOnClickListener(mOnClickListener);
 
         mAllVideo = new ArrayList<>();
     }

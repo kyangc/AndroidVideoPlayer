@@ -48,13 +48,6 @@
             android:textColor="#ffffff"
             android:textSize="15sp"/>
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/txt_dlna_title"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/icon_tv_big"/>
-
         <TextView
             android:id="@+id/txt_dlna_exit"
             android:paddingLeft="18dp"
@@ -90,21 +83,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"/>
-    </FrameLayout>
-
-    <FrameLayout
-        android:id="@+id/video_share_tv_view"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:visibility="gone">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@drawable/icon_tv_small"/>
     </FrameLayout>
 
 
